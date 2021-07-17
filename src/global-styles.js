@@ -19,8 +19,9 @@ export const GlobalStyles = createGlobalStyle`
     background-size: cover;
   }
   
-  /* ::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 8px;
+    background: transparent !important;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #222222;
@@ -30,7 +31,7 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-thumb {
     background: #444444;
     border-radius: 10px;
-  } */
+  } 
   
   ::selection {
     background-color: red;
