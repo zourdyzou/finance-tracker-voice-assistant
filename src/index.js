@@ -1,14 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
 import { App } from "./app";
+import { Provider } from "./contexts/globalContext";
 import { GlobalStyles } from "./global-styles";
 import reportWebVitals from "./reportWebVitals";
 
 render(
-  <>
+  <Provider>
     <GlobalStyles />
     <App />
-  </>,
+  </Provider>,
   document.getElementById("root")
 );
 

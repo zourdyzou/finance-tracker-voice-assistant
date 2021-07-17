@@ -7,11 +7,7 @@ import useStyles from "./styles/appStyles";
 export const App = () => {
   const classes = useStyles();
   return (
-    <div
-      style={{
-        paddingBottom: "100px",
-      }}
-    >
+    <div className="fix-padding">
       <Grid
         className={classes.grid}
         container

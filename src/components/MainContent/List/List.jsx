@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   List as MUIList,
   ListItem,
@@ -13,9 +13,11 @@ import { Delete, MoneyOff } from "@material-ui/icons";
 import useStyles from "./styled";
 import moment from "moment";
 import { v4 as uuidv4 } from "uuid";
+import { FinanceManagementContext } from "../../../contexts/globalContext";
 
 export const Lists = () => {
   const classes = useStyles();
+  const { deleteTransaction } = useContext(FinanceManagementContext);
   // const dateNow = new Date();
 
   //TODO => mock transaction //DELETE later
