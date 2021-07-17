@@ -1,14 +1,17 @@
 // reducer :> a function that takes in the old state, and an action => new state...
 
 const contextReducer = (state, action) => {
+  let transactions;
   switch (action.type) {
     case "DELETE_TRANSACTION":
-      break;
+      transactions = state.filter((t) => t.id !== action.payload);
+      return transactions;
     case "ADD_TRANSACTION":
-      break;
+      transactions = [action.payload, ...state];
+      return transactions;
 
     default:
-      break;
+      return state;
   }
 };
 
