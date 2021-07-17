@@ -1,10 +1,18 @@
+// @ts-nocheck
 import React from "react";
 import { Card, CardContent, Typography, CardHeader } from "@material-ui/core";
+import { Doughnut } from "react-chartjs-2";
+import useStyles from "./styled";
 
-export const Details = () => {
+export const Details = ({ title, subheader }) => {
+  const classes = useStyles();
   return (
-    <>
-      <h1>Details Content</h1>
-    </>
+    <Card className={title === "Income" ? classes.income : classes.expenses}>
+      <CardHeader title={title} subheader={subheader} />
+      <CardContent>
+        <Typography variant="h5">$50</Typography>
+        <Doughnut data="DATA" />
+      </CardContent>
+    </Card>
   );
 };
