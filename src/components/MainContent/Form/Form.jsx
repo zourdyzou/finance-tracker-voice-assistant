@@ -9,15 +9,22 @@ import {
   Select,
   MenuItem,
 } from "@material-ui/core";
+import { v4 as uuidv4 } from "uuid";
+// import moment from "moment";
+
 import useStyles from "./styled";
-import moment from "moment";
+import { formatDate } from "../../../utils/formatDate";
+import {
+  incomeCategories,
+  expenseCategories,
+} from "../../../constants/categories";
 import { FinanceManagementContext } from "../../../contexts/globalContext";
 
 const initialState = {
   amount: "",
   category: "",
   type: "Income",
-  date: moment().locale("de").format("LLLL"),
+  date: formatDate(new Date()),
 };
 
 export const Form = () => {
@@ -25,9 +32,15 @@ export const Form = () => {
   const { addTransaction } = useContext(FinanceManagementContext);
   const classes = useStyles();
 
-  const createTransaction = () => {};
+  const createTransaction = () => {
+    const transaction = { ...formData, amount: +formData.amount, id: uuidv4() };
 
-  console.log(formData);
+    addTransaction(transaction);
+    setFormData(initialState);
+  };
+
+  const selectedCategories =
+    formData.type === "Income" ? incomeCategories : expenseCategories;
 
   return (
     <Grid container spacing={2}>
@@ -59,8 +72,11 @@ export const Form = () => {
               setFormData({ ...formData, category: target.value })
             }
           >
-            <MenuItem value="business">Business</MenuItem>
-            <MenuItem value="salary">Salary</MenuItem>
+            {selectedCategories?.map((category) => (
+              <MenuItem key={uuidv4()} value={category.type}>
+                {category.type}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
       </Grid>
@@ -82,7 +98,7 @@ export const Form = () => {
           fullWidth
           value={formData.date}
           onChange={({ target }) =>
-            setFormData({ ...formData, date: target.value })
+            setFormData({ ...formData, date: formatDate(target.value) })
           }
         />
       </Grid>

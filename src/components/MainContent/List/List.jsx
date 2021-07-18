@@ -11,46 +11,13 @@ import {
 } from "@material-ui/core";
 import { Delete, MoneyOff } from "@material-ui/icons";
 import useStyles from "./styled";
-import moment from "moment";
-import { v4 as uuidv4 } from "uuid";
 import { FinanceManagementContext } from "../../../contexts/globalContext";
 
 export const Lists = () => {
   const classes = useStyles();
-  const { deleteTransaction } = useContext(FinanceManagementContext);
-  // const dateNow = new Date();
-
-  //TODO => mock transaction //DELETE later
-  const transactions = [
-    {
-      id: uuidv4(),
-      type: "Income",
-      category: "Salary",
-      amount: 50,
-      date: moment().format("LLLL"),
-    },
-    {
-      id: uuidv4(),
-      type: "Expense",
-      category: "Pets",
-      amount: 65,
-      date: moment().format("LLLL"),
-    },
-    {
-      id: uuidv4(),
-      type: "Expense",
-      category: "Laptop Repair",
-      amount: 150,
-      date: moment().format("LLLL"),
-    },
-    {
-      id: uuidv4(),
-      type: "Income",
-      category: "Side Job",
-      amount: 250,
-      date: moment().format("LLLL"),
-    },
-  ];
+  const { deleteTransaction, transactions } = useContext(
+    FinanceManagementContext
+  );
 
   return (
     <MUIList dense={false} className={classes.list}>
@@ -79,7 +46,11 @@ export const Lists = () => {
               secondary={`$${transaction.amount} - ${transaction.date}`}
             />
             <ListItemSecondaryAction>
-              <IconButton edge="end" aria-label="delete">
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                onClick={() => deleteTransaction(transaction.id)}
+              >
                 <Delete />
               </IconButton>
             </ListItemSecondaryAction>
