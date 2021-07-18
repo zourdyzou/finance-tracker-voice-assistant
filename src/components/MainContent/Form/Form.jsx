@@ -10,6 +10,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { v4 as uuidv4 } from "uuid";
+import { useSpeechContext } from "@speechly/react-client";
 // import moment from "moment";
 
 import useStyles from "./styled";
@@ -30,6 +31,7 @@ const initialState = {
 export const Form = () => {
   const [formData, setFormData] = useState(initialState);
   const { addTransaction } = useContext(FinanceManagementContext);
+  const { segment } = useSpeechContext();
   const classes = useStyles();
 
   const createTransaction = () => {
@@ -46,7 +48,7 @@ export const Form = () => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography variant="subtitle2" gutterBottom align="center">
-          ...
+          {segment && <>{segment.words.map((word) => word.value).join(" ")}</>}
         </Typography>
       </Grid>
       <Grid item xs={6}>

@@ -1,15 +1,18 @@
 import React from "react";
 import { render } from "react-dom";
+import { SpeechProvider } from "@speechly/react-client";
 import { App } from "./app";
 import { Provider } from "./contexts/globalContext";
 import { GlobalStyles } from "./global-styles";
 import reportWebVitals from "./reportWebVitals";
 
 render(
-  <Provider>
-    <GlobalStyles />
-    <App />
-  </Provider>,
+  <SpeechProvider appId="0041b535-011d-4b3d-8ddd-f6b7793731f3" language="en-US">
+    <Provider>
+      <GlobalStyles />
+      <App />
+    </Provider>
+  </SpeechProvider>,
   document.getElementById("root")
 );
 
