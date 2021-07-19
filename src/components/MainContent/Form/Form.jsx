@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   TextField,
   Typography,
@@ -40,6 +40,69 @@ export const Form = () => {
     addTransaction(transaction);
     setFormData(initialState);
   };
+
+  useEffect(() => {
+    if (segment) {
+      if (segment.intent.intent === "add_expense") {
+        setFormData({ ...formData, type: "Expense" });
+      }
+
+      if (segment.intent.intent === "add_income") {
+        setFormData({ ...formData, type: "Income" });
+      }
+
+      if (segment.isFinal && segment.intent.intent === "create_transaction") {
+        return createTransaction();
+      }
+
+      if (segment.isFinal && segment.intent.intent === "cancel_transaction") {
+        return setFormData(initialState);
+      }
+
+      segment.entities.forEach((entity) => {
+        const categoryFix = `${entity.value.charAt(0)}${entity.value
+          .slice(1)
+          .toLowerCase()}`;
+        switch (entity.type) {
+          case "amount":
+            return setFormData({ ...formData, amount: entity.value });
+          case "category":
+            if (incomeCategories.map((ic) => ic.type).includes(categoryFix)) {
+              return setFormData({
+                ...formData,
+                type: "Income",
+                category: categoryFix,
+              });
+            } else if (
+              expenseCategories.map((ec) => ec.type).includes(categoryFix)
+            ) {
+              return setFormData({
+                ...formData,
+                type: "Expense",
+                category: categoryFix,
+              });
+            }
+            break;
+          case "date":
+            return setFormData({ ...formData, date: entity.value });
+
+          default:
+            break;
+        }
+      });
+
+      if (
+        segment.isFinal &&
+        formData.amount &&
+        formData.category &&
+        formData.type
+      ) {
+        console.log("EXISTED!");
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [segment]);
 
   const selectedCategories =
     formData.type === "Income" ? incomeCategories : expenseCategories;
