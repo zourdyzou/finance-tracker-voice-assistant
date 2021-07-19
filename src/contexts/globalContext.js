@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from "react";
 import contextReducer from "./contextReducer";
 
-const initialState = [];
+const initialState = JSON.parse(localStorage.getItem("transactions")) ?? [];
 
 export const FinanceManagementContext = createContext(initialState);
 
@@ -15,7 +15,16 @@ export const Provider = ({ children }) => {
   const addTransaction = (transaction) =>
     dispatch({ type: "ADD_TRANSACTION", payload: transaction });
 
-  console.log(transactions);
+  // const data = localStorage.getItem("transactions");
+  // console.log(JSON.parse(data));
+
+  console.log(initialState);
+
+  const balance = transactions.reduce(
+    (acc, currVal) =>
+      currVal.type === "Expense" ? acc - currVal.amount : acc + currVal.amount,
+    0
+  );
 
   return (
     <FinanceManagementContext.Provider
@@ -23,6 +32,7 @@ export const Provider = ({ children }) => {
         deleteTransaction,
         addTransaction,
         transactions,
+        balance,
       }}
     >
       {children}

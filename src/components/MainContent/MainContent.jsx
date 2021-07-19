@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Card,
   CardContent,
@@ -10,15 +10,19 @@ import {
 import useStyles from "./styled";
 import { Form } from "./Form/Form";
 import { Lists } from "./List/List";
+import { FinanceManagementContext } from "../../contexts/globalContext";
 
 export const MainContent = () => {
   const classes = useStyles();
+
+  const { balance } = useContext(FinanceManagementContext);
+
   return (
     <Card className={classes.root}>
       <CardHeader title="Expense Tracker" subheader="Powered by Speechly" />
       <CardContent>
         <Typography variant="h5" align="center">
-          Total Balance $100
+          Total Balance ${balance}
         </Typography>
         <Typography
           variant="subtitle1"

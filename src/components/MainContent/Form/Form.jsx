@@ -32,9 +32,12 @@ export const Form = () => {
   const [formData, setFormData] = useState(initialState);
   const { addTransaction } = useContext(FinanceManagementContext);
   const { segment } = useSpeechContext();
+
   const classes = useStyles();
 
   const createTransaction = () => {
+    if (Number.isNaN(+formData.amount) || !formData.date.includes("-")) return;
+
     const transaction = { ...formData, amount: +formData.amount, id: uuidv4() };
 
     addTransaction(transaction);
@@ -97,7 +100,7 @@ export const Form = () => {
         formData.category &&
         formData.type
       ) {
-        console.log("EXISTED!");
+        createTransaction();
       }
     }
 
