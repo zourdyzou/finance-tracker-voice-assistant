@@ -48,7 +48,7 @@ export const Form = () => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography variant="subtitle2" gutterBottom align="center">
-          {segment && <>{segment.words.map((word) => word.value).join(" ")}</>}
+          {segment && segment.words.map((word) => word.value).join(" ")}
         </Typography>
       </Grid>
       <Grid item xs={6}>
