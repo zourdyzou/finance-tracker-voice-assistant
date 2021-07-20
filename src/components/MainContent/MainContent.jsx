@@ -11,6 +11,7 @@ import useStyles from "./styled";
 import { Form } from "./Form/Form";
 import { Lists } from "./List/List";
 import { FinanceManagementContext } from "../../contexts/globalContext";
+import { InfoCard } from "../index";
 
 export const MainContent = () => {
   const classes = useStyles();
@@ -31,7 +32,7 @@ export const MainContent = () => {
             marginTop: "20px",
           }}
         >
-          Try saying: Add income for $100 in Category salary for Monday
+          <InfoCard />
         </Typography>
         <Divider className={classes.divider} />
         <Form />

@@ -21,13 +21,20 @@ export const App = () => {
         justifyContent="center"
         style={{ height: "100vh" }}
       >
-        <Grid item xs={12} sm={3}>
+        {/* in MOBILE => HIDDEN */}
+        <Grid item xs={12} sm={3} className={classes.mobile}>
           <Details title="Income" />
         </Grid>
-        <Grid item xs={12} sm={4}>
+
+        <Grid item xs={12} sm={4} className={classes.main}>
           <MainContent />
         </Grid>
-        <Grid item xs={12} sm={3}>
+
+        <Grid item xs={12} sm={3} className={classes.desktop}>
+          <Details title="Income" />
+        </Grid>
+
+        <Grid item xs={12} sm={3} className={classes.last}>
           <Details title="Expense" />
         </Grid>
       </Grid>
