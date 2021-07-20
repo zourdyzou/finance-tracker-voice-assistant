@@ -20,6 +20,7 @@ import {
   expenseCategories,
 } from "../../../constants/categories";
 import { FinanceManagementContext } from "../../../contexts/globalContext";
+import { SnackbarComponent } from "../../index";
 
 const initialState = {
   amount: "",
@@ -30,6 +31,7 @@ const initialState = {
 
 export const Form = () => {
   const [formData, setFormData] = useState(initialState);
+  const [open, setOpen] = useState(false);
   const { addTransaction } = useContext(FinanceManagementContext);
   const { segment } = useSpeechContext();
 
@@ -40,6 +42,7 @@ export const Form = () => {
 
     const transaction = { ...formData, amount: +formData.amount, id: uuidv4() };
 
+    setOpen((open) => !open);
     addTransaction(transaction);
     setFormData(initialState);
   };
@@ -112,6 +115,7 @@ export const Form = () => {
 
   return (
     <Grid container spacing={2}>
+      <SnackbarComponent open={open} setOpen={setOpen} />
       <Grid item xs={12}>
         <Typography variant="subtitle2" gutterBottom align="center">
           {segment && segment.words.map((word) => word.value).join(" ")}
