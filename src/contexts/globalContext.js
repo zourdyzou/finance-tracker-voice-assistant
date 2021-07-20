@@ -18,7 +18,7 @@ export const Provider = ({ children }) => {
   // const data = localStorage.getItem("transactions");
   // console.log(JSON.parse(data));
 
-  console.log(initialState);
+  // console.log(initialState);
 
   const balance = transactions.reduce(
     (acc, currVal) =>
