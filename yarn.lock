@@ -1692,14 +1692,12 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@speechly/browser-client@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/@speechly/browser-client/-/browser-client-1.0.15.tgz#26d4fe43aaaca97bf9cf9b4396567f4cd17d6bbe"
-  integrity sha512-diPZ4x0oC4G9mdZTA3Wx48ZwZ/3EX85XLHaB5Pj8Iz8VtUn5KbqUFMdnQl5X5zC3Clnp3MKF4pNNYDJJA1PR7w==
+"@speechly/browser-client@>=1.0.19":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@speechly/browser-client/-/browser-client-2.4.0.tgz#db7fcb9d17cdb6980714792e7da0d78dd02ad8b8"
+  integrity sha512-uK0TSbjKRp04WBOYrkZHEjoUGQWy15eaJNe6xlY5x/vzehBQyQq0ms/51kpqxhT4hgr57KnwHbrx2VxzhLYZcg==
   dependencies:
-    async-retry "^1.3.1"
     base-64 "^0.1.0"
-    locale-code "^2.0.2"
     uuid "^8.0.0"
 
 "@speechly/browser-ui@^3.13.0":
@@ -1707,12 +1705,12 @@
   resolved "https://registry.yarnpkg.com/@speechly/browser-ui/-/browser-ui-3.13.1.tgz#b44a5ab8284e80b4e71c09199e11cafe4966995e"
   integrity sha512-q9oio7cHLaqx8Z3mF7hZM6z4xCL0hvJMecq586WpW1Sg0tXUNuJovsSL6OARv09XO8f0zSyaLzDeTV+Rpl86XQ==
 
-"@speechly/react-client@^0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@speechly/react-client/-/react-client-0.0.21.tgz#62c6be29c498ffdea6f32a4850400963eca4c79e"
-  integrity sha512-k7opWS2dnnHENGjn2NxEONA7iM46fZoIM86FsYgVJ4/1xXNvdgWo7FiuqyFMbPXgi7xCRArAqmF4ziLXZZHKTA==
+"@speechly/react-client@0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@speechly/react-client/-/react-client-0.0.23.tgz#21926ac74980fac625368518c66392fef152f2f0"
+  integrity sha512-VD0yMAYT1X8GMj+yQVncNMR/wyW6Ihbmxn+hXGIc1ESrWBCqKK6F0xPQNGUmxSFQbPiqWCOeVuyw/qwbdteeyA==
   dependencies:
-    "@speechly/browser-client" "^1.0.15"
+    "@speechly/browser-client" ">=1.0.19"
 
 "@speechly/react-ui@^2.0.0-beta.11":
   version "2.0.0-beta.11"
@@ -2714,13 +2712,6 @@ async-limiter@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
-
-async-retry@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/async-retry/-/async-retry-1.3.1.tgz#139f31f8ddce50c0870b0ba558a6079684aaed55"
-  integrity sha512-aiieFW/7h3hY0Bq5d+ktDBejxuwR78vRu9hDUdR8rNhSaQ29VzPL4AoIRG7D/c7tdenwOcKvgPM6tIxB3cB6HA==
-  dependencies:
-    retry "0.12.0"
 
 async@^2.6.2:
   version "2.6.3"
@@ -6454,25 +6445,6 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-iso-3166-1-alpha-2@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/iso-3166-1-alpha-2/-/iso-3166-1-alpha-2-1.0.0.tgz#bc9e0bb94e584df5468a932997a28552e26f97ac"
-  integrity sha1-vJ4LuU5YTfVGipMpl6KFUuJvl6w=
-  dependencies:
-    mout "^0.11.0"
-
-iso-639-1-zh@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/iso-639-1-zh/-/iso-639-1-zh-2.0.4.tgz#61b577d14ee8b0c2c8e73697a3c894fe02dbd541"
-  integrity sha1-YbV30U7osMLI5zaXo8iU/gLb1UE=
-  dependencies:
-    iso-639-1 "^2.0.0"
-
-iso-639-1@^2.0.0:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/iso-639-1/-/iso-639-1-2.1.9.tgz#e41b11d4f1808e5316d0252c3fa16eeb9b37bb58"
-  integrity sha512-owRu9up+Cpx/hwSzm83j6G8PtC7U99UCtPVItsafefNfEgMl+pi8KBwhXwJkJfp6IouyYWFxj8n24SvCWpKZEQ==
-
 isobject@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
@@ -7311,14 +7283,6 @@ loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-locale-code@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/locale-code/-/locale-code-2.0.2.tgz#660d80c5825d8fe9f3ba4a72de5716833ec7d0ed"
-  integrity sha512-wNcUMwk6Nlc10pnZZXWtKArAOZHhH8p2vohPEIENg7ImwMrib/CwKSvyV4g9Wm7KjylyHzXnEMz4i/W3w57wlw==
-  dependencies:
-    iso-3166-1-alpha-2 "~1.0.0"
-    iso-639-1-zh "^2.0.4"
-
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -7701,11 +7665,6 @@ moment@^2.29.1:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
-
-mout@^0.11.0:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/mout/-/mout-0.11.1.tgz#ba3611df5f0e5b1ffbfd01166b8f02d1f5fa2b99"
-  integrity sha1-ujYR318OWx/7/QEWa48C0fX6K5k=
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -9900,7 +9859,7 @@ ret@~0.1.10:
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
-retry@0.12.0, retry@^0.12.0:
+retry@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
   integrity sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=
