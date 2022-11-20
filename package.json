@@ -9,7 +9,7 @@
     "@speechly/react-client": "^0.0.21",
     "@speechly/react-ui": "^2.0.0-beta.11",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
+    "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^12.1.10",
     "chart.js": "^3.4.1",
     "moment": "^2.29.1",
